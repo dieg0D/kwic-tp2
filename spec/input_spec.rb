@@ -5,7 +5,7 @@ describe Input do
 
         context 'when file not exists' do
             it 'return false' do
-                file_path = './resources/teste.txt'
+                file_path = '../resources/teste.txt'
                 
                 file_exists = File.exists?(file_path)
                 
@@ -15,7 +15,7 @@ describe Input do
 
         context 'when file exists' do
             it 'verifying that the file exists' do
-                file_path = './resources/test.txt'
+                file_path = '../resources/test.txt'
                 
                 file_exists = File.exists?(file_path)
                 
@@ -26,8 +26,15 @@ describe Input do
     
     
     it "file must have text" do
-        file_path = './resources/test.txt'
+        file_path = '../resources/test.txt'
         input = Input.read_file(file_path)
         expect(input).not_to be_nil
+    end
+
+
+    it "input should be string" do
+        file_path = '../resources/test.txt'
+        input = Input.read_file(file_path)
+        expect(input.length).to be > 0
     end
 end
